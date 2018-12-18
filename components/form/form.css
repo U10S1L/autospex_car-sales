@@ -1,0 +1,13 @@
+#salesForm .form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#salesForm .input-group {
+  text-align: right;
+}
+#salesForm .radio-group {
+  display: flex;
+  justify-content: space-between;
+}
