@@ -2,6 +2,7 @@
   "name": "autospex-car-sales",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://u10s1l.github.io/autospex_car-sales/",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
