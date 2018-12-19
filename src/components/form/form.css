@@ -5,7 +5,7 @@
 }
 
 #salesForm .input-group {
-  text-align: right;
+  text-align: left;
 }
 #salesForm .radio-group {
   display: flex;

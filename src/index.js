@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import SalesForm from "../components/form/form";
+import SalesForm from "./components/form/form";
 import { Container, Col, Row } from "reactstrap";
 import "./styles.css";
 
@@ -9,11 +9,11 @@ function App() {
     <div className="App">
       <h1>AutoSpex Car Sales</h1>
       <Container>
-        <Row>
-          <Col sm={8}>
+        <div className="row">
+          <div className="col-xs-8">
             <SalesForm />
-          </Col>
-        </Row>
+          </div>
+        </div>
       </Container>
     </div>
   );

@@ -18,14 +18,14 @@ const FormGroup = ({
   if (settings.linkedLabel) {
     return (
       <div className="form-group">
-        <div className="input-group col-sm-auto">
+        <div className="input-group col-xs-3">
           <label for={inputID}>
             <a href={labelAddOns.href} target="_blank">
               {labelText}
             </a>
           </label>
         </div>
-        <div className="col-sm-9">
+        <div className="col-xs-9">
           <input
             type={inputType}
             id={inputID}
@@ -42,12 +42,12 @@ const FormGroup = ({
   } else if (settings.carRank) {
     return (
       <div className="form-group">
-        <div className="input-group col-3">
+        <div className="input-group col-xs-3">
           <label for={inputID} {...labelAddOns}>
             {labelText}
           </label>
         </div>
-        <div className="col-sm-9 radio-group radio">
+        <div className="col-xs-9 radio-group radio">
           <label className="radio-inline">
             <input
               name={inputID}
@@ -93,12 +93,12 @@ const FormGroup = ({
   } else {
     return (
       <div className="form-group">
-        <div className="input-group col-3">
+        <div className="input-group col-xs-3">
           <label for={inputID} {...labelAddOns}>
             {labelText}
           </label>
         </div>
-        <div className="col-sm-9">
+        <div className="col-xs-9">
           <input
             type={inputType}
             id={inputID}
@@ -136,7 +136,8 @@ class SalesForm extends Component {
       oocEngine: null,
       oocBattery: null,
       sellerName: null,
-      sellerNumber: null
+      sellerNumber: null,
+      bbCode: ""
     };
   }
 
@@ -182,7 +183,9 @@ class SalesForm extends Component {
 
   getBBCode() {
     let bbCode = generateBBCode(this.state);
-    console.log(bbCode);
+    if (bbCode !== this.state.bbCode) {
+      this.setState({ bbCode: bbCode });
+    }
   }
 
   render() {
@@ -303,30 +306,28 @@ class SalesForm extends Component {
               labelAddOns={{
                 href: "https://forum.ls-rp.io/viewtopic.php?f=63&t=687989"
               }}
-              inputType={"number"}
+              inputType={"text"}
               inputID={"carDSPrice"}
               inputValue={this.state.carDSPrice}
-              inputPlaceholder={100000}
+              inputPlaceholder={"100,000"}
               inputAddOns={({ step: "1" }, { min: "0" })}
               handleFormEntry={e => this.handleFormEntry(e)}
-              keyPressEvents={e => this.validate(e)}
             />
             <FormGroup
               labelText={"AutoSpex Price"}
-              inputType={"number"}
+              inputType={"text"}
               inputID={"carAutoSpexPrice"}
               inputValue={this.state.carAutoSpexPrice}
-              inputPlaceholder={100000}
+              inputPlaceholder={"80,000"}
               inputAddOns={({ step: "1" }, { min: "0" })}
               handleFormEntry={e => this.handleFormEntry(e)}
-              keyPressEvents={e => this.validate(e)}
             />
             <FormGroup
               labelText={"Left Image URL"}
               inputType={"Text"}
               inputID={"carLeftImg"}
               value={this.state.carLeftImg}
-              inputPlaceholder={""}
+              inputPlaceholder={"https://i.imgur.com/BcovwBy.jpg"}
               handleFormEntry={e => this.handleFormEntry(e)}
             />
             <FormGroup
@@ -334,7 +335,7 @@ class SalesForm extends Component {
               inputType={"Text"}
               inputID={"carRightImg"}
               inputValue={this.state.carRightImg}
-              inputPlaceholder={""}
+              inputPlaceholder={"https://i.imgur.com/IqYnn8E.jpg"}
               handleFormEntry={e => this.handleFormEntry(e)}
             />
             <FormGroup
@@ -356,11 +357,20 @@ class SalesForm extends Component {
           </form>
           <button
             type="button"
-            className="btn btn-secondary"
-            onClick={this.getBBCode()}
+            className="btn btn-warning"
+            onClick={() => this.getBBCode()}
           >
-            Secondary
+            Get Code
           </button>
+        </div>
+        <div id="bbCode">
+          <textarea
+            type="text"
+            rows="8"
+            cols="30"
+            id="bbCodeText"
+            value={this.state.bbCode}
+          />
         </div>
       </Fragment>
     );

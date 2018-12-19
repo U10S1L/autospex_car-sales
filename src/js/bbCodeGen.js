@@ -47,7 +47,7 @@ export const generateBBCode = appState => {
     ranks[insurance]
   } insurance! Sitting at ${carMiles} miles!
 
-Our Price: ${carAutoSpexPrice}
+Our Price: $${carAutoSpexPrice}
 Brand New: $[url=https://forum.ls-rp.io/viewtopic.php?f=63&t=687989]${carDSPrice}[/url][/size][/center]
 [center][img]${carLeftImg}[/img][img]${carRightImg}[/img]
 (( ${oocLock}/${oocAlarm}/${oocImmob}/${oocInsurance} - ${oocEngine}/${oocBattery}))
