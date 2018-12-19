@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <h1>AutoSpex Car Sales</h1>
       <Container>
-        <div className="row">
+        <div className="row mainContent">
           <div className="col-xs-8">
             <SalesForm />
           </div>
